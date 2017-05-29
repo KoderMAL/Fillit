@@ -6,7 +6,7 @@
 #    By: alalaoui <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/28 17:44:48 by alalaoui          #+#    #+#              #
-#    Updated: 2017/05/29 16:06:33 by alalaoui         ###   ########.fr        #
+#    Updated: 2017/05/29 16:22:06 by alalaoui         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,15 +29,13 @@ LIB_PATH = ./libft/
 LIB_NAME = libft.a
 LIB = $(addprefix $(LIB_PATH), $(LIB_NAME))
 
-%.o: %.c
-	 gcc $(FLAGS) -o $@ -c $<
 
-all : $(NAME) $(SRC)
+all : $(NAME)
 
-$(NAME):
+$(NAME): $(SRC)
 	cd libft ; $(MAKE)
 	cd ..
-	gcc $(FLAGS) $(SRC) -c 
+	gcc $(FLAGS) $(SRC) -c
 	gcc -o $(NAME) $(LIB) $(OBJ)
 
 clean:
